@@ -4,15 +4,24 @@ import Card from "./Card";
 const TabContent = ({ content }) => {
   console.log(content);
   const [like, setlike] = useState(0);
+  const [showDetails, setShowDetails] = useState(true);
   return (
     <Card>
       <div className="flex flex-col gap-y-3 px-3 py-5">
         <h4 className="font-bold text-[#364fc7]">{content.summary}</h4>
-        <p className="text-sm font-semibold leading-6">{content.details}</p>
+        {showDetails ? (
+          <p className="text-sm font-semibold leading-6">{content.details}</p>
+        ) : (
+          ""
+        )}
+
         <div className="flex flex-row justify-between items-center">
           <div className="">
-            <button className="text-[#364fc7] border-none underline text-xs">
-              Hide details
+            <button
+              onClick={() => setShowDetails((prev) => !prev)}
+              className="text-[#364fc7] border-none underline text-xs"
+            >
+              {showDetails ? "Hide details" : "Show details"}
             </button>
           </div>
           <div className="flex flex-row gap-1 text-sm justify-center items-center">

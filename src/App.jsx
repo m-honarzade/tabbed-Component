@@ -1,5 +1,9 @@
+import DifferentContent from "./components/DifferentContent";
 import Tab from "./components/Tab";
 import Tabbed from "./components/Tabbed";
+
+console.log(<DifferentContent />);
+console.log(DifferentContent());
 
 const content = [
   {
